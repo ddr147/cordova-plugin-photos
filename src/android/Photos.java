@@ -108,7 +108,7 @@ public class Photos extends CordovaPlugin {
 
 	@SuppressWarnings("MismatchedReadAndWriteOfArray")
 	private static final String[] PRJ_COLLECTIONS =
-			new String[]{"DISTINCT " + BUCKET_ID, BUCKET_DISPLAY_NAME};
+			new String[]{BUCKET_ID, BUCKET_DISPLAY_NAME};
 
 	@SuppressWarnings("MismatchedReadAndWriteOfArray")
 	private static final String[] PRJ_PHOTOS =
