@@ -112,7 +112,7 @@ public class Photos extends CordovaPlugin {
 
 	@SuppressWarnings("MismatchedReadAndWriteOfArray")
 	private static final String[] PRJ_PHOTOS =
-			new String[]{_ID, TITLE, DATE_TAKEN, LATITUDE, LONGITUDE, WIDTH, HEIGHT, ORIENTATION};
+			new String[]{_ID, TITLE, DATE_TAKEN, DATE_ADDED, LATITUDE, LONGITUDE, WIDTH, HEIGHT, ORIENTATION};
 
 	private String action;
 	private JSONArray data;
@@ -258,7 +258,7 @@ public class Photos extends CordovaPlugin {
 				PRJ_PHOTOS,
 				selection,
 				selectionArgs,
-				DATE_TAKEN + " DESC")) {
+				DATE_ADDED + " DESC")) {
 			int fetched = 0;
 			JSONArray result = new JSONArray();
 			if (cursor.moveToFirst()) {
