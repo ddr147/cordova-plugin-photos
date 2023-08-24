@@ -572,7 +572,7 @@ NSString* const S_SORT_TYPE = @"creationDate";
          
             PHFetchOptions* fetchOptions = [[PHFetchOptions alloc] init];
              fetchOptions.sortDescriptors = @[[NSSortDescriptor
-                                               sortDescriptorWithKey:@"burstIdentifier"
+                                               sortDescriptorWithKey:@"modificationDate"
                                                ascending:NO]];
             if (offset == 0) {
                 fetchOptions.fetchLimit = limit;
