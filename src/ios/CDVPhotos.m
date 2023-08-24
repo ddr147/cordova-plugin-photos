@@ -52,7 +52,7 @@ NSString* const E_PHOTO_ID_WRONG = @"Photo with specified ID wasn't found";
 NSString* const E_PHOTO_NOT_IMAGE = @"Data with specified ID isn't an image";
 NSString* const E_PHOTO_BUSY = @"Fetching of photo assets is in progress";
 
-NSString* const S_SORT_TYPE = @"creationDate";
+NSString* const S_SORT_TYPE = @"modificationDate";
 
 - (void) pluginInitialize {
     _dateFormat = [[NSDateFormatter alloc] init];
