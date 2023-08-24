@@ -172,7 +172,7 @@ NSString* const E_PHOTO_BUSY = @"Fetching of photo assets is in progress";
              }
              PHFetchOptions* fetchOptions = [[PHFetchOptions alloc] init];
              fetchOptions.sortDescriptors = @[[NSSortDescriptor
-                                               sortDescriptorWithKey:@"burstIdentifier"
+                                               sortDescriptorWithKey:@"modificationDate"
                                                ascending:NO]];
              fetchOptions.predicate
              = [NSPredicate predicateWithFormat:@"mediaType = %d", PHAssetMediaTypeImage];
