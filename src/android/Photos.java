@@ -169,11 +169,11 @@ public class Photos extends CordovaPlugin {
 	}
 
 	private boolean checkPermission(String action, JSONArray data, final CallbackContext callbackContext) {
-		if (!PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+		if (!PermissionHelper.hasPermission(this, Manifest.permission.READ_MEDIA_IMAGES)) {
 			this.action = action;
 			this.data = data;
 			this.permissionCallbackContext = callbackContext;
-			PermissionHelper.requestPermission(this, 0, Manifest.permission.READ_EXTERNAL_STORAGE);
+			PermissionHelper.requestPermission(this, 0, Manifest.permission.READ_MEDIA_IMAGES);
 			return false;
 		}
 		return true;
