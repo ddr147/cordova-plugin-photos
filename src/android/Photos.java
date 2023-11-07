@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.util.Base64;
 import android.util.Log;
 import android.graphics.Matrix;
+import android.os.Build;
 
 import org.apache.cordova.*;
 import org.json.JSONArray;
@@ -169,13 +170,23 @@ public class Photos extends CordovaPlugin {
 	}
 
 	private boolean checkPermission(String action, JSONArray data, final CallbackContext callbackContext) {
-		if (!PermissionHelper.hasPermission(this, Manifest.permission.READ_MEDIA_IMAGES)) {
-			this.action = action;
-			this.data = data;
-			this.permissionCallbackContext = callbackContext;
-			PermissionHelper.requestPermission(this, 0, Manifest.permission.READ_MEDIA_IMAGES);
-			return false;
-		}
+		if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+	            if (!PermissionHelper.hasPermission(this, Manifest.permission.READ_MEDIA_IMAGES)) {
+	                this.action = action;
+	                this.data = data;
+	                this.permissionCallbackContext = callbackContext;
+	                PermissionHelper.requestPermission(this, 0, Manifest.permission.READ_MEDIA_IMAGES);
+	                return false;
+	            }
+		} else {
+	            if (!PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+	                this.action = action;
+	                this.data = data;
+	                this.permissionCallbackContext = callbackContext;
+	                PermissionHelper.requestPermission(this, 0, Manifest.permission.READ_EXTERNAL_STORAGE);
+	                return false;
+	            }
+       	 	}
 		return true;
 	}
 
